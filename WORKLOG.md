@@ -56,11 +56,18 @@ Models to download:
 - Started Wan2.1-T2V-14B download (tmux `vfx_setup`, window `models`)
 - GitHub repo created: https://github.com/goog-msft-fb-nflx-nvda-aapl/csie7694-vfx-final
 
+**Fixes applied:**
+- xformers 0.0.35 (built for PyTorch 2.10, leaked from ~/.local) shadowed by installing xformers 0.0.28.post3 in conda env
+- cffi missing → `pip install cffi` fixed diffusers import chain
+
+**Sanity inference: PASSED**
+- Output: `results/obj_rem_1/gen_two_man.mp4` (33 frames, 400×752), side-by-side compare, reason+edit video
+- 4-step diffusion: ~20s on 1× H200, ~0 GPU memory idle after
+- Warnings only (FutureWarning autocast, padding mask) — no errors
+
 **TODO next:**
-- [ ] Finish requirements install (`pip install -r requirements.txt`)
-- [ ] Finish model downloads (Wan2.1-14B + VideoCoF weights + FusionX LoRA)
-- [ ] Run sanity inference on sample video (obj_rem.sh)
+- [ ] Run all 4 task types (obj_rem, obj_add, obj_swap, local_style) on sample assets
 - [ ] Collect 3 custom videos for demo
-- [ ] Implement flow-based flicker evaluator
-- [ ] Run long-video extrapolation experiments (33→512 frames)
+- [ ] Run long-video extrapolation experiments (33→128→256→512 frames)
+- [ ] Implement flow-based flicker/drift evaluator (RAFT optical flow + CLIP)
 - [ ] Record 5-min demo video
