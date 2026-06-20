@@ -112,8 +112,16 @@ CLIP drift increases slightly (style drifts more at long range) — interesting 
 Flicker: 65.7 → 41.0 → 27.5 → 20.2 (33→128→256→512 frames)
 Flow: 9.18 → 5.24 → 4.01 → 2.69
 
+**Custom demo videos: DONE**
+- custom_walk.mp4 (trimmed from Pexels 3002456, 33f) → obj_rem "Remove the person walking" → results/custom_walk_rem/
+- custom_greenhouse.mp4 (trimmed from assets/greenhouse.mp4, 33f) → obj_add "Add orange tabby cat" → results/custom_greenhouse_add/
+- assets/dough.mp4 (33f) → local_style "Make dough golden brown" → results/custom_dough_style/
+
+**Eval charts generated:**
+- eval_length_trend.png — flicker/flow/drift vs frame length (33→512)
+- eval_task_comparison.png — per-task metrics at 33f baseline
+
 **TODO next:**
-- [ ] Collect 3 custom videos for demo (download from Pexels/Pixabay)
-- [ ] Run 4 task types on custom videos
-- [ ] Record 5-min demo video
-- [ ] Write report / slides for submission
+- [ ] Record 5-min demo video (screen capture + narration)
+- [ ] Write README with results table and methodology
+- [ ] Package submission zip: demo.mp4 + code/ + README
