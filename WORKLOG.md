@@ -103,12 +103,17 @@ Using predict_v2v_dmd_cot_json.py + daiyu_529frames.mp4
 | local_style_daiyu_33 | 33 | 65.7 | 9.18 | 0.154 |
 | local_style_128 | 126 | 41.0 | 5.24 | 0.274 |
 | local_style_256 | 254 | 27.5 | 4.01 | 0.282 |
-| local_style_512 | ~512 | (running) | | |
+| local_style_512 | 510 | **20.2** | **2.69** | 0.247 |
 
 Interpretation: VideoCoF's temporal reasoner produces *smoother* edits at longer sequences.
 CLIP drift increases slightly (style drifts more at long range) — interesting trade-off to discuss.
 
+**Trend confirmed: monotonic improvement in temporal consistency with length.**
+Flicker: 65.7 → 41.0 → 27.5 → 20.2 (33→128→256→512 frames)
+Flow: 9.18 → 5.24 → 4.01 → 2.69
+
 **TODO next:**
-- [ ] Get 512f eval result
 - [ ] Collect 3 custom videos for demo (download from Pexels/Pixabay)
+- [ ] Run 4 task types on custom videos
 - [ ] Record 5-min demo video
+- [ ] Write report / slides for submission
