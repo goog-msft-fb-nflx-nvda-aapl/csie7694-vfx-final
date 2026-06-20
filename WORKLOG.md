@@ -91,8 +91,24 @@ Using predict_v2v_dmd_cot_json.py + daiyu_529frames.mp4
 - 256f: num_frames=516, source_frames=256 → results/longvid_real256/
 - 512f: num_frames=1028, source_frames=512 → results/longvid_real512/
 
+**Long-video extrapolation: 128f + 256f DONE, 512f running (GPU 7, 47GB, 100%)**
+- All on daiyu_529frames.mp4 (local_style task)
+- 128f → 126 frames actual output
+- 256f → 254 frames actual output
+
+**Key research finding — flicker DECREASES at longer lengths:**
+
+| Tag | frames | flicker↓ | flow_smooth↓ | clip_drift↓ |
+|-----|--------|----------|-------------|-------------|
+| local_style_daiyu_33 | 33 | 65.7 | 9.18 | 0.154 |
+| local_style_128 | 126 | 41.0 | 5.24 | 0.274 |
+| local_style_256 | 254 | 27.5 | 4.01 | 0.282 |
+| local_style_512 | ~512 | (running) | | |
+
+Interpretation: VideoCoF's temporal reasoner produces *smoother* edits at longer sequences.
+CLIP drift increases slightly (style drifts more at long range) — interesting trade-off to discuss.
+
 **TODO next:**
-- [ ] Confirm long-video outputs have correct frame counts (128/256/512)
-- [ ] Run evaluator on long-video outputs (compare flicker/drift vs 33f baseline)
-- [ ] Collect 3 custom videos for demo
+- [ ] Get 512f eval result
+- [ ] Collect 3 custom videos for demo (download from Pexels/Pixabay)
 - [ ] Record 5-min demo video
