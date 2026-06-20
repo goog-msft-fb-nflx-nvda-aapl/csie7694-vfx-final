@@ -65,9 +65,34 @@ Models to download:
 - 4-step diffusion: ~20s on 1× H200, ~0 GPU memory idle after
 - Warnings only (FutureWarning autocast, padding mask) — no errors
 
+**All 4 task types: PASSED** (parallel on GPUs 1-3)
+- obj_rem: results/obj_rem_1/ (two_man.mp4, 33f)
+- obj_add: results/obj_add_1/ (woman_ballon.mp4, 33f)
+- obj_swap: results/obj_swap_1/ (sign.mp4, 33f)
+- local_style: results/local_style_2/ (ketchup.mp4, 33f)
+
+**Evaluator: eval_consistency.py — implemented and running**
+Metrics: flicker (L2 temporal diff in edit region), flow_smoothness (Farneback optical flow), CLIP drift (cosine distance from frame-0)
+
+**Eval results (33-frame baseline):**
+
+| Tag | edit_coverage | flicker↓ | flow_smoothness↓ | clip_drift↓ |
+|-----|-----------|---------|--------------|----------|
+| obj_rem | 0.391 | 13.95 | 1.881 | 0.106 |
+| obj_add | 0.283 | 16.50 | 0.744 | 0.025 |
+| obj_swap | 0.545 | 5.19 | 0.458 | 0.013 |
+| local_style | 0.190 | 8.85 | 0.386 | 0.019 |
+
+Note: obj_rem has highest flicker/drift (person removal is hardest task); local_style lowest (only color change).
+
+**Long-video extrapolation: IN PROGRESS on GPUs 5/6/7**
+Using predict_v2v_dmd_cot_json.py + daiyu_529frames.mp4
+- 128f: num_frames=260, source_frames=128 → results/longvid_real128/
+- 256f: num_frames=516, source_frames=256 → results/longvid_real256/
+- 512f: num_frames=1028, source_frames=512 → results/longvid_real512/
+
 **TODO next:**
-- [ ] Run all 4 task types (obj_rem, obj_add, obj_swap, local_style) on sample assets
+- [ ] Confirm long-video outputs have correct frame counts (128/256/512)
+- [ ] Run evaluator on long-video outputs (compare flicker/drift vs 33f baseline)
 - [ ] Collect 3 custom videos for demo
-- [ ] Run long-video extrapolation experiments (33→128→256→512 frames)
-- [ ] Implement flow-based flicker/drift evaluator (RAFT optical flow + CLIP)
 - [ ] Record 5-min demo video
