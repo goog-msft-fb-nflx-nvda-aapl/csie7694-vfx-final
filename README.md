@@ -17,6 +17,12 @@ We reproduce VideoCoF's **"See → Reason → Edit"** video editing pipeline and
 
 ---
 
+## Presentation Video
+
+[![Presentation](https://img.youtube.com/vi/v_Fab4fXPE8/0.jpg)](https://youtu.be/v_Fab4fXPE8)
+
+---
+
 ## Demo Videos (side-by-side: source | edited)
 
 ### Official Asset Demos — 4 Task Types

@@ -121,6 +121,8 @@ Flow: 9.18 → 5.24 → 4.01 → 2.69
 - eval_length_trend.png — flicker/flow/drift vs frame length (33→512)
 - eval_task_comparison.png — per-task metrics at 33f baseline
 
+**Presentation video (2026-06-21):** https://youtu.be/v_Fab4fXPE8
+
 **YouTube demo videos uploaded (2026-06-21):**
 
 | File | YouTube URL |
