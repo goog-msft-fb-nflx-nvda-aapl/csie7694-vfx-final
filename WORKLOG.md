@@ -121,7 +121,22 @@ Flow: 9.18 → 5.24 → 4.01 → 2.69
 - eval_length_trend.png — flicker/flow/drift vs frame length (33→512)
 - eval_task_comparison.png — per-task metrics at 33f baseline
 
+**YouTube demo videos uploaded (2026-06-21):**
+
+| File | YouTube URL |
+|------|-------------|
+| gen_two_man_compare.mp4 | https://youtu.be/YrSXDfodARQ |
+| gen_woman_ballon_compare.mp4 | https://youtu.be/DVdjT1-NwJY |
+| gen_sign_compare.mp4 | https://youtu.be/9XwIsaIqAeA |
+| gen_ketchup_compare.mp4 | https://youtu.be/JrKO-eHL4x4 |
+| gen_custom_walk_compare.mp4 | https://youtu.be/otCqmUiymGI |
+| gen_custom_greenhouse_compare.mp4 | https://youtu.be/AaGL1IsZZVA |
+| gen_dough_compare.mp4 | https://youtu.be/tz7ex2RaQ5I |
+| gen_daiyu_128f_compare.mp4 | https://youtu.be/kBDuQB4zHmY |
+| gen_daiyu_512f_compare.mp4 | https://youtu.be/eaK4FQZ6XSc |
+
+README updated with clickable YouTube thumbnails. GitHub renders them as image links.
+
 **TODO next:**
 - [ ] Record 5-min demo video (screen capture + narration)
-- [ ] Write README with results table and methodology
 - [ ] Package submission zip: demo.mp4 + code/ + README
